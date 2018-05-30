@@ -1,0 +1,121 @@
+{
+  "rules": [
+    {
+      "rulePriority": 1,
+      "description": "Remove images older than 60 days",
+      "selection": {
+        "tagStatus": "tagged",
+        "tagPrefixList": ["1"],
+        "countType": "imageCountMoreThan",
+        "countNumber": 60
+      },
+      "action": {
+        "type": "expire"
+      }
+    },
+    {
+      "rulePriority": 2,
+      "description": "Remove images older than 60 days",
+      "selection": {
+        "tagStatus": "tagged",
+        "tagPrefixList": ["2"],
+        "countType": "imageCountMoreThan",
+        "countNumber": 60
+      },
+      "action": {
+        "type": "expire"
+      }
+    },
+    {
+      "rulePriority": 3,
+      "description": "Remove images older than 60 days",
+      "selection": {
+        "tagStatus": "tagged",
+        "tagPrefixList": ["3"],
+        "countType": "imageCountMoreThan",
+        "countNumber": 60
+      },
+      "action": {
+        "type": "expire"
+      }
+    },
+    {
+      "rulePriority": 4,
+      "description": "Remove images older than 60 days",
+      "selection": {
+        "tagStatus": "tagged",
+        "tagPrefixList": ["4"],
+        "countType": "imageCountMoreThan",
+        "countNumber": 60
+      },
+      "action": {
+        "type": "expire"
+      }
+    },
+    {
+      "rulePriority": 5,
+      "description": "Remove images older than 60 days",
+      "selection": {
+        "tagStatus": "tagged",
+        "tagPrefixList": ["5"],
+        "countType": "imageCountMoreThan",
+        "countNumber": 60
+      },
+      "action": {
+        "type": "expire"
+      }
+    },
+    {
+      "rulePriority": 6,
+      "description": "Remove images older than 60 days",
+      "selection": {
+        "tagStatus": "tagged",
+        "tagPrefixList": ["6"],
+        "countType": "imageCountMoreThan",
+        "countNumber": 60
+      },
+      "action": {
+        "type": "expire"
+      }
+    },
+    {
+      "rulePriority": 7,
+      "description": "Remove images older than 60 days",
+      "selection": {
+        "tagStatus": "tagged",
+        "tagPrefixList": ["7"],
+        "countType": "imageCountMoreThan",
+        "countNumber": 60
+      },
+      "action": {
+        "type": "expire"
+      }
+    },
+    {
+      "rulePriority": 8,
+      "description": "Remove images older than 60 days",
+      "selection": {
+        "tagStatus": "tagged",
+        "tagPrefixList": ["8"],
+        "countType": "imageCountMoreThan",
+        "countNumber": 60
+      },
+      "action": {
+        "type": "expire"
+      }
+    },
+    {
+      "rulePriority": 9,
+      "description": "Remove images older than 60 days",
+      "selection": {
+        "tagStatus": "tagged",
+        "tagPrefixList": ["9"],
+        "countType": "imageCountMoreThan",
+        "countNumber": 60
+      },
+      "action": {
+        "type": "expire"
+      }
+    }
+  ]
+}

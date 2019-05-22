@@ -12,9 +12,11 @@ module "my_registry" {
 }
 ```
 
-There is two outputs:
-* `ecr_host`
-* `ecr_repo`
+## Outputs
+
+* `ecr_host` - The hostname of the repository (in the form *aws_account_id.dkr.ecr.region.amazonaws.com*)
+* `ecr_repo` - The name of the repository.
+* `ecr_repository_url` - The URL of the repository (in the form *aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName*)
 
 Example:
 ```

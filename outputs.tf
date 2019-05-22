@@ -5,3 +5,7 @@ output "ecr_host" {
 output "ecr_repo" {
   value = "${aws_ecr_repository.image.name}"
 }
+
+output "ecr_repository_url" {
+  value = "${aws_ecr_repository.image.repository_url}"
+}

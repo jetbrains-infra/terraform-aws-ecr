@@ -4,8 +4,9 @@ Terraform module to create AWS ECR with retention rules.
 ## Usage
 ```
 module "my_registry" {
-  source = "github.com/jetbrains-infra/aws-ecr-terraform-module"
-  name = "reponame"
+  source  = "github.com/jetbrains-infra/aws-ecr-terraform-module?ref=v0.1.0"
+  name    = "blinchik"
+  project = "FooBar"  
 }
 ```
 

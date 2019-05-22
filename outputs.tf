@@ -1,5 +1,5 @@
 output "ecr_host" {
-  value = "${aws_ecr_repository.image.registry_id}.dkr.ecr.${var.region}.amazonaws.com"
+  value = "${aws_ecr_repository.image.registry_id}.dkr.ecr.${local.region}.amazonaws.com"
 }
 
 output "ecr_repo" {

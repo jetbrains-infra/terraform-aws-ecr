@@ -6,11 +6,10 @@ variable "project" {
   description = "Project tag."
 }
 
-variable "region" {
-  default = "eu-west-1"
-}
+data "aws_region" "current" {}
 
 locals {
   name    = "${var.name}"
+  region  = "${data.aws_region.current.name}"
   project = "${var.project}"
 }

@@ -12,4 +12,5 @@ locals {
   name    = "${var.name}"
   region  = "${data.aws_region.current.name}"
   project = "${var.project}"
+  title   = "${title(replace(replace(local.name, "-", "" ), " ", ""))}"
 }

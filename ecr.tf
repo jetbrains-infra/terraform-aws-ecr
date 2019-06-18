@@ -9,9 +9,10 @@ resource "aws_ecr_repository" "image" {
 # Only keep last 30 images
 resource "aws_ecr_lifecycle_policy" "cleanup" {
   repository = "${aws_ecr_repository.image.name}"
-  policy = << END_OF_POLICY
+
+  policy = <<END_OF_POLICY
 {
-    "rules": [
+   "rules": [
       {
         "rulePriority": 1,
         "description": "Keep last 30 images",

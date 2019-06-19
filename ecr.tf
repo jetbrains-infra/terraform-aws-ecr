@@ -1,14 +1,14 @@
 resource "aws_ecr_repository" "image" {
-  name = "${var.name}"
+  name = var.name
 
-  tags {
-    Project = "${local.project}"
+  tags = {
+    Project = local.project
   }
 }
 
 # Only keep last 30 images
 resource "aws_ecr_lifecycle_policy" "cleanup" {
-  repository = "${aws_ecr_repository.image.name}"
+  repository = aws_ecr_repository.image.name
 
   policy = <<END_OF_POLICY
 {
@@ -28,4 +28,5 @@ resource "aws_ecr_lifecycle_policy" "cleanup" {
     ]
 }
 END_OF_POLICY
+
 }

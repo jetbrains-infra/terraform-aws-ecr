@@ -1,23 +1,23 @@
 data "aws_iam_policy_document" "allow_manage_docker_repo" {
   statement {
-    sid       = "AllowManage${local.title}DockerRepo"
+    sid = "AllowManage${local.title}DockerRepo"
     resources = [
-      "${aws_ecr_repository.image.arn}"
+      aws_ecr_repository.image.arn,
     ]
-    actions   = [
+    actions = [
       "ecr:GetDownloadUrlForLayer",
       "ecr:BatchGetImage",
       "ecr:BatchCheckLayerAvailability",
       "ecr:PutImage",
       "ecr:InitiateLayerUpload",
       "ecr:UploadLayerPart",
-      "ecr:CompleteLayerUpload"
+      "ecr:CompleteLayerUpload",
     ]
   }
   statement {
-    sid       = "AllowGetAuthorizationToken"
-    actions   = [
-      "ecr:GetAuthorizationToken"
+    sid = "AllowGetAuthorizationToken"
+    actions = [
+      "ecr:GetAuthorizationToken",
     ]
     resources = ["*"]
   }
@@ -25,20 +25,20 @@ data "aws_iam_policy_document" "allow_manage_docker_repo" {
 
 data "aws_iam_policy_document" "allow_fetch_images_from_repo" {
   statement {
-    sid       = "AllowFetchImages${local.title}DockerRepo"
+    sid = "AllowFetchImages${local.title}DockerRepo"
     resources = [
-      "${aws_ecr_repository.image.arn}"
+      aws_ecr_repository.image.arn,
     ]
-    actions   = [
+    actions = [
       "ecr:GetDownloadUrlForLayer",
       "ecr:BatchGetImage",
-      "ecr:BatchCheckLayerAvailability"
+      "ecr:BatchCheckLayerAvailability",
     ]
   }
   statement {
-    sid       = "AllowGetAuthorizationToken"
-    actions   = [
-      "ecr:GetAuthorizationToken"
+    sid = "AllowGetAuthorizationToken"
+    actions = [
+      "ecr:GetAuthorizationToken",
     ]
     resources = ["*"]
   }

@@ -4,13 +4,34 @@ Terraform module to create AWS ECR repository.
 
 ## Usage
 
-```
+Minimal params:
+```hcl
 module "my_registry" {
-  source  = "github.com/jetbrains-infra/terraform-aws-ecr?ref=v0.1.0"
+  source  = "github.com/jetbrains-infra/terraform-aws-ecr?ref=v0.2.1"
   name    = "blinchik"
-  project = "FooBar"  
+  tags = {
+    Owner    = "Don John",
+    Project  = "Alice"
+    Customer = "Umbrella Corp."
+  }
 }
 ```
+
+All options with default values:
+```hcl
+module "my_registry" {
+  source  = "github.com/jetbrains-infra/terraform-aws-ecr?ref=v0.2.1"
+  name    = "blinchik"
+  scan    = false
+  mutable = true
+  tags = {
+    Owner    = "Don John",
+    Project  = "Alice"
+    Customer = "Umbrella Corp."
+  }
+}
+```
+
 
 ## Outputs
 
@@ -19,8 +40,3 @@ module "my_registry" {
 * `ecr_repository_url` - The URL of the repository (in the form *aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName*)
 * `ecr_repo_rw_policy` - IAM policy in JSON format that grant of rights to manage images.
 * `ecr_repo_ro_policy` - IAM policy in JSON format that grant of rights to fetch images.
-
-Example:
-```
-${module.my_registry.ecr_host}/${module.my_registry.ecr_repo}
-```

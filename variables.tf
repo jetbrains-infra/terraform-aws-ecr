@@ -11,6 +11,10 @@ variable "mutable" {
 variable "scan" {
   default = false
 }
+variable "share_with_accounts" {
+  type    = list(string)
+  default = []
+}
 data "aws_region" "current" {}
 
 locals {
@@ -19,10 +23,11 @@ locals {
   title      = title(replace(replace(local.name, "-", ""), " ", ""))
   mutability = var.mutable ? "MUTABLE" : "IMMUTABLE"
   scan       = var.scan
+  accounts   = formatlist("arn:aws:iam::%s:root", var.share_with_accounts)
   tags = merge({
     Name          = local.name
     Module        = "ECR Repository"
-    ModuleVersion = "v0.2.1"
+    ModuleVersion = "v0.2.2"
     ModuleSource  = "https://github.com/jetbrains-infra/terraform-aws-ecr/"
   }, var.tags)
 }

@@ -43,3 +43,24 @@ data "aws_iam_policy_document" "allow_fetch_images_from_repo" {
     resources = ["*"]
   }
 }
+
+data "aws_iam_policy_document" "cross_account_pull" {
+  statement {
+    sid = "CrossAccountPull"
+    principals {
+      identifiers = local.accounts
+      type        = "AWS"
+    }
+    actions = [
+      "ecr:BatchCheckLayerAvailability",
+      "ecr:BatchGetImage",
+      "ecr:GetDownloadUrlForLayer"
+    ]
+  }
+}
+
+resource "aws_ecr_repository_policy" "cross_account_pull" {
+  count      = var.share_with_accounts == [] ? 0 : 1
+  policy     = data.aws_iam_policy_document.cross_account_pull.json
+  repository = aws_ecr_repository.image.name
+}

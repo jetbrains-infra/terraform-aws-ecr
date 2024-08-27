@@ -45,6 +45,7 @@ data "aws_iam_policy_document" "allow_fetch_images_from_repo" {
 }
 
 data "aws_iam_policy_document" "cross_account_pull" {
+  count = var.share_with_accounts == [] ? 0 : 1
   statement {
     sid = "CrossAccountPull"
     principals {
@@ -61,6 +62,6 @@ data "aws_iam_policy_document" "cross_account_pull" {
 
 resource "aws_ecr_repository_policy" "cross_account_pull" {
   count      = var.share_with_accounts == [] ? 0 : 1
-  policy     = data.aws_iam_policy_document.cross_account_pull.json
+  policy     = data.aws_iam_policy_document.cross_account_pull[count.index].json
   repository = aws_ecr_repository.image.name
 }

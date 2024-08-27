@@ -7,7 +7,7 @@ Terraform module to create AWS ECR repository.
 Minimal params:
 ```hcl
 module "my_registry" {
-  source  = "github.com/jetbrains-infra/terraform-aws-ecr?ref=v0.2.3"
+  source  = "github.com/jetbrains-infra/terraform-aws-ecr?ref=v0.2.4"
   name    = "blinchik"
   tags = {
     Owner    = "Don John",
@@ -20,7 +20,7 @@ module "my_registry" {
 All options with default values:
 ```hcl
 module "my_registry" {
-  source              = "github.com/jetbrains-infra/terraform-aws-ecr?ref=v0.2.3"
+  source              = "github.com/jetbrains-infra/terraform-aws-ecr?ref=v0.2.4"
   name                = "blinchik"
   scan                = false
   mutable             = true

@@ -27,7 +27,7 @@ locals {
   tags = merge({
     Name          = local.name
     Module        = "ECR Repository"
-    ModuleVersion = "v0.2.3"
+    ModuleVersion = "v0.2.4"
     ModuleSource  = "https://github.com/jetbrains-infra/terraform-aws-ecr/"
   }, var.tags)
 }
